@@ -15,26 +15,10 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="#">Home </a></li>
-			<li class="nav-item active"><a class="nav-link" href="#">Link</a></li>
-			<!-- specialization -->
-			<li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Specialization </a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" th:href="@{/spec/reg}">Register</a> <a class="dropdown-item" th:href="@{/spec/show}">ALL</a>
-				</div></li>
-			<!-- specialization end -->
-			<!-- Doctor -->
-			<li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Doctor </a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" th:href="@{/doctor/register}">Register</a> <a class="dropdown-item" th:href="@{/doctor/all}">ALL</a>
-				</div></li>
-			<!-- Doctor end -->
-			<!-- Appointment -->
-			<li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Appointment </a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" th:href="@{/appoinment/register}">Register</a> <a class="dropdown-item" th:href="@{/appoinment/all}">ALL</a>
-				</div></li>
-			<!-- Appointment end -->
+			<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home </a></li>
+			<li class="nav-item active"><a class="nav-link" th:href="@{/dummy/api/configure}">Configure</a></li>
+			<li class="nav-item active"><a class="nav-link" th:href="@{/dummy/api/show}">APIs</a></li>
+			
 
 		</ul>
 
