@@ -56,4 +56,16 @@ public class APIService {
 		apiReposetory.delete(getOneAPI(id));
 	}
 
+	public String saveApi(API api) {
+		API findByTitle = apiReposetory.findByTitle(api.getTitle());
+		if (findByTitle == null) {
+			API save = apiReposetory.save(api);
+			return save.getTitle();
+
+		} else {
+			return null;
+		}
+
+	}
+
 }

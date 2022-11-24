@@ -27,7 +27,20 @@ public class ApiController {
 		return "APIConfigure";
 	}
 
-	@GetMapping("/dummy/api")
+	@PostMapping("/dummy/api/save")
+	public String saveSpacialization(@ModelAttribute API api, Model model) {
+		String apiTitle = aPIService.saveApi(api);
+		if (apiTitle == null) {
+			String massage = "API " + api.getTitle() + " Already Existed !";
+			model.addAttribute("message", massage);
+		} else {
+			String massage = "API " + api.getTitle() + " Created !";
+			model.addAttribute("message", massage);
+		}
+		return "APIConfigure";
+	}
+
+	@GetMapping("/dummy/api/show")
 	public String showAll(Model model, @RequestParam(required = false) String message) {
 		List<API> list = aPIService.getAllAPIs();
 		model.addAttribute("list", list);
@@ -44,7 +57,7 @@ public class ApiController {
 			page = "APIEdit";
 		} catch (APINotFoundException e) {
 			attributes.addAttribute("message", e.getMessage());
-			page = "redirect:/dummy/api";
+			page = "redirect:/dummy/api/show";
 
 		}
 		return page;
@@ -58,7 +71,7 @@ public class ApiController {
 		} catch (APINotFoundException e) {
 			redirectAttributes.addAttribute("message", e.getMessage());
 		}
-		return "redirect:/dummy/api";
+		return "redirect:/dummy/api/show";
 	}
 
 	@GetMapping("/dummy/api/delete")
@@ -69,7 +82,7 @@ public class ApiController {
 		} catch (APINotFoundException e) {
 			attributes.addAttribute("message", e.getMessage());
 		}
-		return "redirect:/dummy/api";
+		return "redirect:/dummy/api/show";
 	}
 
 }

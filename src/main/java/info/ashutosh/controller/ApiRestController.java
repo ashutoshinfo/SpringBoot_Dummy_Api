@@ -1,9 +1,6 @@
 package info.ashutosh.controller;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,32 +31,12 @@ public class ApiRestController {
 	}
 
 	@PostMapping(value = "/{path}")
-	public String getAllAPIsByPOst(@PathVariable String path) {
+	public String getAllAPIsByPost(@PathVariable String path) {
 		return aPIService.findByTitle(path);
 	}
+
 	@GetMapping(value = "/{path}")
 	public String getAllAPIsByGet(@PathVariable String path) {
 		return aPIService.findByTitle(path);
-	}
-
-
-	public static void main(String[] args) {
-		new ApiRestController().nameq();
-	}
-
-	private void nameq() {
-
-		List<String> list = new LinkedList<>();
-		list.add("Patel");
-
-		Stream<String> map = list.stream().parallel().map((n) -> name(n));
-		List<String> collect = map.collect(Collectors.toList());
-		System.out.println(collect);
-	}
-
-	private String name(String n) {
-
-		return n + " Ashutosh";
-
 	}
 }
