@@ -1,0 +1,72 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+<div th:replace="fragments/Commonui.html::header"></div>
+<body>
+	<div th:replace="fragments/Commonui.html::usermenu"></div>
+	<div class="container">
+
+		<div class="card">
+
+			<div class="card-header bg-primary text-white text-center">
+				<h3>API EDIT PAGE</h3>
+			</div>
+
+			<div class="card-body">
+				<form th:action="@{/dummy/api/update}" method="POST"
+					th:object="${API}">
+					<!--row#0-->
+					<div class="row">
+						<div class="col-3">
+							<label>API ID </label>
+						</div>
+						<div class="col-4">
+							<input type="text" th:field="*{ApiId}" class="form-control"
+								readonly />
+						</div>
+						<div class="col-5">
+							<span id="docIdError"></span>
+						</div>
+					</div>
+					<!--row#1-->
+					<div class="row">
+						<div class="col-3">
+							<label>API TITLE </label>
+						</div>
+						<div class="col-4">
+							<input type="text" th:field="*{title}" class="form-control" />
+						</div>
+						<div class="col-5">
+							<span id="docNameError"></span>
+						</div>
+					</div>
+
+					<!--row#2-->
+					<div class="row">
+						<div class="col-3">
+							<label>API DESCRITION</label>
+						</div>
+						<div class="col-8">
+							<textarea rows="10" th:field="*{description}"
+								class="form-control"></textarea>
+						</div>
+						<div class="col-5">
+							<span id="docEmailError"></span>
+						</div>
+					</div>
+
+
+
+
+					<a th:href="@{/dummy/api/show}" class="btn btn-info">Cancel</a>
+					<button type="submit" class="btn btn-success">
+						Update <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</button>
+				</form>
+			</div>
+			<!--card body end-->
+
+		</div>
+		<!--card  end-->
+	</div>
+	<!--container end-->
+</body>
+</html>
